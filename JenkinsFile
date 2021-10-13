@@ -25,7 +25,7 @@ pipeline {
     stage('Publish to Nexus') {
       steps {
         echo "${ProjectName}"
-        powershell 'Write-Host ${ProjectName}'
+        powershell "Write-Host ${ProjectName}"
       }
     }
 
