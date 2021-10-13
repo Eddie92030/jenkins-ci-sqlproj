@@ -13,7 +13,7 @@ pipeline {
 
     stage('Build Dacpac') {
       steps {
-        bat "\"${tool name: 'Default', type: 'msbuild'}\" /p:Configuration=Release"
+        bat "\"${tool name: 'MSBuild', type: 'msbuild'}\" /p:Configuration=Release"
         gci $ENV:WORKSPACE -rec
       }
     }
