@@ -25,6 +25,7 @@ pipeline {
     stage('Publish to Nuget') {
       steps {
         echo 'Todo: publish to nuget'
+        curl -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file $ENV:WORKSPACE\bin\
       }
     }
 
