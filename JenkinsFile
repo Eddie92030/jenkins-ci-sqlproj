@@ -26,7 +26,7 @@ pipeline {
       steps {
         echo "${ProjectName}"
         sh '''#!/bin/bash
-            curl -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file $ENV:WORKSPACE\$ENV:ProjectName\bin\release\$ENV:ProjectName.dacpac http://localhost:8081/repository/msbuild-drop/$ENV:ProjectName/$ENV:BUILD_ID/$ENV:ProjectName.dacpac'
+            curl -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file $ENV:WORKSPACE\${ProjectName}\bin\release\${ProjectName}.dacpac http://localhost:8081/repository/msbuild-drop/${ProjectName}/$ENV:BUILD_ID/${ProjectName}.dacpac
         '''
       }
     }
