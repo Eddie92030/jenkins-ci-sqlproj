@@ -1,3 +1,7 @@
+def PowerShell(psCmd) {
+    bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';$psCmd;EXIT \$global:LastExitCode\""
+}
+
 pipeline {
   agent {
      node { 
@@ -14,7 +18,7 @@ pipeline {
     stage('Build Dacpac') {
       steps {
         bat "\"${tool name: 'MSBuild', type: 'msbuild'}\\MSBuild.exe\" /p:Configuration=Release"
-        gci $ENV:WORKSPACE -rec
+        powershell 'gci $ENV:WORKSPACE -rec'
       }
     }
 
