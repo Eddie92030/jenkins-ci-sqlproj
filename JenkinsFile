@@ -1,0 +1,27 @@
+pipeline {
+  agent {
+     node { 
+        label 'windows'
+        } 
+  }
+  stages {
+    stage('Checkout Scm') {
+      steps {
+        git 'https://github.com/Eddie92030/jenkins-ci-sqlproj'
+      }
+    }
+
+    stage('Build Dacpac') {
+      steps {
+        echo 'No converter for Builder: hudson.plugins.msbuild.MsBuildBuilder'
+      }
+    }
+
+    stage('Publish to Nuget') {
+      steps {
+        echo 'No converter for Builder: hudson.plugins.powershell.PowerShell'
+      }
+    }
+
+  }
+}
