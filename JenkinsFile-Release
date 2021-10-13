@@ -1,0 +1,27 @@
+def buildNumber = Jenkins.instance.getItem('sqlproj-jenkinsfile-build').lastSuccessfulBuild.number
+
+pipeline {
+  agent {
+     node { 
+        label 'windows'
+        } 
+  }
+  stages {
+    stage('Download Artifact from Nexus') {
+      steps {
+        echo "${ProjectName}"
+        echo "${buildNumber}"
+        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f http://localhost:8081/repository/msbuild-drop/${ProjectName}/${buildNumber}/${ProjectName}.dacpac --output ./${ProjectName}.dacpac"
+
+      }
+    }
+
+    stage('Deploy Dacpac') {
+      steps {
+        echo "ToDo"
+      }
+    }
+    
+
+  }
+}
