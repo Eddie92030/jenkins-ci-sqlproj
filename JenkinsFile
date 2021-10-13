@@ -25,7 +25,9 @@ pipeline {
     stage('Publish to Nuget') {
       steps {
         echo 'Todo: publish to nuget'
-        sh 'curl -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file $ENV:WORKSPACE\$ENV:ProjectName\bin\release\$ENV:ProjectName.dacpac http://localhost:8081/repository/msbuild-drop/$ENV:ProjectName/$ENV:BUILD_ID/$ENV:ProjectName.dacpac'
+        sh '''#!/bin/bash
+            curl -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file $ENV:WORKSPACE\$ENV:ProjectName\bin\release\$ENV:ProjectName.dacpac http://localhost:8081/repository/msbuild-drop/$ENV:ProjectName/$ENV:BUILD_ID/$ENV:ProjectName.dacpac'
+        '''
       }
     }
 
