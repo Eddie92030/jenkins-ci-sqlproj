@@ -1,4 +1,4 @@
-def buildNumber = Jenkins.instance.getItem('sqlproj-jenkinsfile-build').lastSuccessfulBuild.number
+def buildNumber = Jenkins.instance.getItem("${BuildJobName}").lastSuccessfulBuild.number
 
 pipeline {
   agent {
