@@ -19,6 +19,7 @@ pipeline {
     stage('Deploy Dacpac') {
       steps {
         echo "ToDo"
+        bat "sqlpackage.exe /Action:Publish /SourceFile:./${ProjectName}.dacpac /TargetServerName:${DBServerName} /TargetDatabaseName:${DBName}"
       }
     }
     
