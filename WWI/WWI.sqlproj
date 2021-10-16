@@ -82,6 +82,10 @@
     <Folder Include="Integration\Stored Procedures\" />
     <Folder Include="Website\User Defined Types\" />
     <Folder Include="Sequences\Sequences\" />
+    <Folder Include="Security\Roles" />
+    <Folder Include="_Scripts" />
+    <Folder Include="_Scripts\PreDeployment" />
+    <Folder Include="_Scripts\PostDeployment" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Warehouse\Tables\Colors.sql" />
@@ -236,5 +240,28 @@
     <Build Include="Sequences\Sequences\PurchaseOrderID.sql" />
     <Build Include="Security\FilterCustomersBySalesTerritoryRole.sql" />
     <Build Include="Application\Tables\EddieTest.sql" />
+    <Build Include="Security\Roles\ReaderRole.sql" />
+    <None Include="_Scripts\PostDeployment\CreateAddReaderUserToReaderRole.sql" />
+    <Build Include="Security\Roles\WriterRole.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="WriterGroupName">
+      <DefaultValue>DUCKNET\DB.Writer.DEV</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ReaderGroupName">
+      <DefaultValue>DUCKNET\DB.Reader.DEV</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="_Scripts\PostDeployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_Scripts\PostDeployment\CreateAddWriterUserToWriterRole.sql" />
+    <None Include="WWI.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="_Scripts\PreDeployment\Script.PreDeployment.sql" />
   </ItemGroup>
 </Project>
