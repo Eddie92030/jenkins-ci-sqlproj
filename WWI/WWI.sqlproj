@@ -235,5 +235,6 @@
     <Build Include="Sequences\Sequences\PersonID.sql" />
     <Build Include="Sequences\Sequences\PurchaseOrderID.sql" />
     <Build Include="Security\FilterCustomersBySalesTerritoryRole.sql" />
+    <Build Include="Application\Tables\EddieTest.sql" />
   </ItemGroup>
 </Project>
