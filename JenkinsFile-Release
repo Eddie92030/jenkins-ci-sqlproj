@@ -1,4 +1,4 @@
-def buildNumber = Jenkins.instance.getItem('sqlproj-jenkinsfile-build').lastSuccessfulBuild.number
+def buildNumber = Jenkins.instance.getItem('${BuildJobName}').lastSuccessfulBuild.number
 
 pipeline {
   agent {
@@ -11,7 +11,7 @@ pipeline {
       steps {
         echo "${ProjectName}"
         echo "${buildNumber}"
-        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f http://localhost:8081/repository/msbuild-drop/${ProjectName}/${buildNumber}/${ProjectName}.dacpac --output ./${ProjectName}.dacpac"
+        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f http://localhost:8081/repository/msbuild-drop/${BuildJobName}/${buildNumber}/${ProjectName}.dacpac --output ./${ProjectName}.dacpac"
 
       }
     }
