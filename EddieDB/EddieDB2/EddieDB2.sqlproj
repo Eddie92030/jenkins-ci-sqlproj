@@ -56,5 +56,29 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Views" />
+    <Folder Include="Stored Procedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EddieDB2_refOnly\EddieDB2_refOnly.sqlproj">
+      <Name>EddieDB2_refOnly</Name>
+      <Project>{5369690b-3efa-499b-afad-4a49f000c7af}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>EddieDB2_refOnly</DatabaseSqlCmdVariable>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="EddieDB2_refOnly">
+      <DefaultValue>EddieDB2_refOnly</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Views\MyView.sql" />
+    <Build Include="Stored Procedures\MyProcedure.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EddieDB2.publish.xml" />
   </ItemGroup>
 </Project>

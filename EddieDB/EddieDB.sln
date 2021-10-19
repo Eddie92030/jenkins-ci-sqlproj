@@ -7,6 +7,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EddieDB1", "EddieDB1\EddieD
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EddieDB2", "EddieDB2\EddieDB2.sqlproj", "{2D7F35B7-CA31-4A4C-A2D1-62273CBE7A20}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EddieDB2_refOnly", "EddieDB2_refOnly\EddieDB2_refOnly.sqlproj", "{5369690B-3EFA-499B-AFAD-4A49F000C7AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,12 @@ Global
 		{2D7F35B7-CA31-4A4C-A2D1-62273CBE7A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D7F35B7-CA31-4A4C-A2D1-62273CBE7A20}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2D7F35B7-CA31-4A4C-A2D1-62273CBE7A20}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5369690B-3EFA-499B-AFAD-4A49F000C7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5369690B-3EFA-499B-AFAD-4A49F000C7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5369690B-3EFA-499B-AFAD-4A49F000C7AF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5369690B-3EFA-499B-AFAD-4A49F000C7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5369690B-3EFA-499B-AFAD-4A49F000C7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5369690B-3EFA-499B-AFAD-4A49F000C7AF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

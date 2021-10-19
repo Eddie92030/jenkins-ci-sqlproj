@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>EddieDB1</Name>
+    <Name>EddieDB2_refOnly</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{9b01ee43-22bc-4935-a3d1-e01e61f574b4}</ProjectGuid>
+    <ProjectGuid>{5369690b-3efa-499b-afad-4a49f000c7af}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>EddieDB1</RootNamespace>
-    <AssemblyName>EddieDB1</AssemblyName>
+    <RootNamespace>EddieDB2_refOnly</RootNamespace>
+    <AssemblyName>EddieDB2_refOnly</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -56,44 +56,11 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Tables" />
-    <Folder Include="Views" />
-    <Folder Include="Stored Procedures" />
-    <Folder Include="Functions" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EddieDB2_refOnly\EddieDB2_refOnly.sqlproj">
-      <Name>EddieDB2_refOnly</Name>
-      <Project>{5369690b-3efa-499b-afad-4a49f000c7af}</Project>
-      <Private>True</Private>
-      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
-      <DatabaseSqlCmdVariable>EddieDB2_refOnly</DatabaseSqlCmdVariable>
-    </ProjectReference>
-    <ProjectReference Include="..\EddieDB2\EddieDB2.sqlproj">
-      <Name>EddieDB2</Name>
-      <Project>{2d7f35b7-ca31-4a4c-a2d1-62273cbe7a20}</Project>
-      <Private>True</Private>
-      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
-      <DatabaseSqlCmdVariable>EddieDB2</DatabaseSqlCmdVariable>
-    </ProjectReference>
+    <Build Include="AutoTable1.sql" />
   </ItemGroup>
   <ItemGroup>
-    <SqlCmdVariable Include="EddieDB2">
-      <DefaultValue>EddieDB2</DefaultValue>
-      <Value>$(SqlCmdVar__2)</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="EddieDB2_refOnly">
-      <DefaultValue>EddieDB2_refOnly</DefaultValue>
-      <Value>$(SqlCmdVar__1)</Value>
-    </SqlCmdVariable>
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="Functions\udf_ConvertToEpoch.sql" />
-    <Build Include="Tables\HerTable.sql" />
-    <Build Include="Views\HerView.sql" />
-    <Build Include="Stored Procedures\HerProcedure.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="EddieDB1.publish.xml" />
+    <None Include="EddieDB2_refOnly.publish.xml" />
   </ItemGroup>
 </Project>
