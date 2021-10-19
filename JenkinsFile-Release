@@ -13,7 +13,7 @@ pipeline {
         echo "${buildNumber}"
         echo "${BuildJobName}"
         powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f http://localhost:8081/repository/msbuild-drop/${BuildJobName}/${buildNumber}/${ProjectName}.dacpac --output ./${ProjectName}.dacpac"
-
+        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f http://localhost:8081/repository/msbuild-drop/${BuildJobName}/${buildNumber}/${EddieDB2}.dacpac --output ./${EddieDB2}.dacpac"
       }
     }
 
