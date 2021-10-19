@@ -60,6 +60,10 @@
     <Folder Include="Views" />
     <Folder Include="Stored Procedures" />
     <Folder Include="Functions" />
+    <Folder Include="Roles" />
+    <Folder Include="_Scripts" />
+    <Folder Include="_Scripts\PostDeployment" />
+    <Folder Include="_Scripts\PreDeployment" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EddieDB2_refOnly\EddieDB2_refOnly.sqlproj">
@@ -86,14 +90,32 @@
       <DefaultValue>EddieDB2_refOnly</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
+    <SqlCmdVariable Include="ReaderGroupName">
+      <DefaultValue>DUCKNET\DB.READER.DEV</DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="WriterGroupName">
+      <DefaultValue>DUCKNET\DB.WRITER.DEV</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
     <Build Include="Functions\udf_ConvertToEpoch.sql" />
     <Build Include="Tables\HerTable.sql" />
     <Build Include="Views\HerView.sql" />
     <Build Include="Stored Procedures\HerProcedure.sql" />
+    <Build Include="Roles\ReaderRole.sql" />
+    <Build Include="Roles\WriterRole.sql" />
+    <None Include="_Scripts\PostDeployment\CreateAddReaderUserToReaderRole.sql" />
+    <None Include="_Scripts\PostDeployment\CreateAddWriterUserToWriterRole.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EddieDB1.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="_Scripts\PostDeployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="_Scripts\PreDeployment\Script.PreDeployment.sql" />
   </ItemGroup>
 </Project>
