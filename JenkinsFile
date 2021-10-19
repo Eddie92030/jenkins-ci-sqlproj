@@ -26,6 +26,8 @@ pipeline {
       steps {
         echo "${ProjectName}"
         powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file ./${ProjectName}/bin/release/${ProjectName}.dacpac http://localhost:8081/repository/msbuild-drop/${env.JOB_NAME}/${env.BUILD_ID}/${ProjectName}.dacpac"
+        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file ./${ProjectName}/bin/release/${DB2}.dacpac http://localhost:8081/repository/msbuild-drop/${env.JOB_NAME}/${env.BUILD_ID}/${DB2}.dacpac"
+        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file ./${ProjectName}/bin/release/${DB2_ref}.dacpac http://localhost:8081/repository/msbuild-drop/${env.JOB_NAME}/${env.BUILD_ID}/${DB2_ref}.dacpac"
       }
     }
 
