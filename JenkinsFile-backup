@@ -1,0 +1,33 @@
+def PowerShell(psCmd) {
+    bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';$psCmd;EXIT \$global:LastExitCode\""
+}
+
+pipeline {
+  agent {
+     node { 
+        label 'windows'
+        } 
+  }
+  stages {
+    stage('Checkout Scm') {
+      steps {
+        git 'https://github.com/Eddie92030/jenkins-ci-sqlproj'
+      }
+    }
+
+    stage('Build Dacpac') {
+      steps {
+        bat "\"${tool name: 'MSBuild', type: 'msbuild'}\\MSBuild.exe\" /p:Configuration=Release"
+        powershell 'gci $ENV:WORKSPACE -rec'
+      }
+    }
+
+    stage('Publish to Nexus') {
+      steps {
+        echo "${ProjectName}"
+        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f --upload-file ./${ProjectName}/bin/release/${ProjectName}.dacpac http://localhost:8081/repository/msbuild-drop/${env.JOB_NAME}/${env.BUILD_ID}/${ProjectName}.dacpac"
+      }
+    }
+
+  }
+}
