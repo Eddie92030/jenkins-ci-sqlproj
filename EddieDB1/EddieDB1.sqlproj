@@ -87,7 +87,7 @@
       <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="EddieDB2_refOnly">
-      <DefaultValue>EddieDB2_refOnly</DefaultValue>
+      <DefaultValue>EddieDB2</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="ReaderGroupName">
