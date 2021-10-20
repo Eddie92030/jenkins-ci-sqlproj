@@ -108,6 +108,7 @@
     <Build Include="Roles\WriterRole.sql" />
     <None Include="_Scripts\PostDeployment\CreateAddReaderUserToReaderRole.sql" />
     <None Include="_Scripts\PostDeployment\CreateAddWriterUserToWriterRole.sql" />
+    <Build Include="Tables\HisTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EddieDB1.publish.xml" />

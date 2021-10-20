@@ -7,5 +7,3 @@
 )
 
 GO
-
-CREATE INDEX [IX_HerTable_Product] ON [dbo].[HerTable] ([Product])
