@@ -13,13 +13,15 @@ pipeline {
         echo "${buildNumber}"
         echo "${BuildJobName}"
         powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f http://localhost:8081/repository/msbuild-drop/${BuildJobName}/${buildNumber}/${ProjectName}.dacpac --output ./${ProjectName}.dacpac"
-
+        powershell "curl.exe -v -u jenkins-user:A*69@%Y_kBwe75f http://localhost:8081/repository/msbuild-drop/${BuildJobName}/${buildNumber}/${EddieDB2}.dacpac --output ./${EddieDB2}.dacpac"
       }
     }
 
     stage('Deploy Dacpac') {
       steps {
-        echo "ToDo"
+        echo "Deploy Dependent Database that is Marked as Deployable"
+        bat "sqlpackage.exe /Action:Publish /SourceFile:./${EddieDB2}.dacpac /TargetServerName:${DBServerName} /TargetDatabaseName:${EddieDB2} /v:EddieDB2_refOnly=${EddieDB2_refOnly}"
+        echo "Deploy Main Database that is Marked as Deployable"
         bat "sqlpackage.exe /Action:Publish /SourceFile:./${ProjectName}.dacpac /TargetServerName:${DBServerName} /TargetDatabaseName:${DBName} /v:ReaderGroupName=${ReaderGroupName} /v:WriterGroupName=${WriterGroupName} /v:EddieDB2=${EddieDB2} /v:EddieDB2_refOnly=${EddieDB2_refOnly}"
       }
     }
